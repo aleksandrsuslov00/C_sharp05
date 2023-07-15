@@ -13,7 +13,7 @@ double k2 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите значение b2");
 double b2 = Convert.ToInt32(Console.ReadLine());
 
-
+Console.Clear();
 if (k1 - k2 != 0) // <------ если иксы сократятся, тогда в знаменателе будет 0, а на ноль делить нельзя -> прямые не пересекутся т.е. параллельны;
 {
     double x = (b2 - b1)/(k1 - k2);
@@ -25,6 +25,7 @@ if (k1 - k2 != 0) // <------ если иксы сократятся, тогда 
 }
 else
 {
+    Console.WriteLine($"b1 = {b1}, b2 = {b2}, k1 = {k1}, k2 = {k2}");
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine("Прямые не пересекутся, соответственно они параллельны.");
     Console.ForegroundColor = ConsoleColor.White;
