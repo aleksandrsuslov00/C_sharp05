@@ -114,5 +114,3 @@ void ColorInArray(int[,] arrayToPrint, int target)
 searchNumber(numbers, target);
 ColorInArray(numbers, target);
 
-
-
