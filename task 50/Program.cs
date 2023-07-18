@@ -9,7 +9,6 @@
 */
 
 Console.Clear();
-Console.ForegroundColor = ConsoleColor.White;
 
 int[,] fillAray(int rowNumber, int colNumber)
 {
@@ -45,46 +44,7 @@ void PrintArray(int[,] arrayToPrint)
     }
 }
 
-int[,] numbers = fillAray(10,10);
-PrintArray(numbers);
-Console.WriteLine("Введите число для проверки: ");
-int target = Convert.ToInt32(Console.ReadLine());
-Console.Clear();
-
-void searchNumber(int[,] arrayToPrint, int target)
-{
-    int count = 0; //счетчик для подсчёта повторов числа в массиве
-    for (int i = 0; i < arrayToPrint.GetLength(0); i++)
-    {
-       for (int j = 0; j < arrayToPrint.GetLength(1); j++)
-       {
-            if (arrayToPrint[i,j] == target)
-            {
-                count++;
-            } 
-       }
-    }
-    
-    if (count > 0)
-    {
-        Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.WriteLine($"Число {target} есть в массиве");
-        Console.ForegroundColor = ConsoleColor.White;
-    
-    }
-    else 
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"Числа {target} нет в массиве");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
-    Console.ForegroundColor = ConsoleColor.Cyan;
-    Console.WriteLine($"Число {target} присутствует в массиве {count} раз");
-    Console.ForegroundColor = ConsoleColor.White;         
-}
-
-void ColorInArray(int[,] arrayToPrint, int target)
+void ColorInArray(int[,] arrayToPrint, int row, int col)
 {
     Console.Write($"[ ]\t");
     
@@ -98,10 +58,9 @@ void ColorInArray(int[,] arrayToPrint, int target)
        Console.Write($"[{i}]\t");
        for (int j = 0; j < arrayToPrint.GetLength(1); j++)
        {
-            //теперь в массиве совпадения будут выделенны цветом
-            if (target == arrayToPrint[i,j])
+            if (i == row && j == col)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
             }
             else Console.ForegroundColor = ConsoleColor.White;
 
@@ -111,6 +70,26 @@ void ColorInArray(int[,] arrayToPrint, int target)
     }
 }
 
-searchNumber(numbers, target);
-ColorInArray(numbers, target);
+int[,] numbers = fillAray(10,10);
+PrintArray(numbers);
 
+Console.WriteLine("Выберите номер строки: ");
+int  row = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Выберите номер столбца: ");
+int col = Convert.ToInt32(Console.ReadLine());
+Console.Clear();
+
+if (row > numbers.GetLength(0) || col > numbers.GetLength(1) || row < 0 || col < 0)
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("Такого элемента нет, либо числа введены неправильно.");
+}
+else
+{ 
+    Console.ForegroundColor = ConsoleColor.Cyan;
+    Console.WriteLine($"Строка: {row}, столбец: {col}");
+    Console.ForegroundColor = ConsoleColor.White;
+}
+
+int target = numbers[row, col];
+ColorInArray(numbers, row, col);
