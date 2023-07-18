@@ -10,14 +10,14 @@
 5 81 2 9
 */
 Console.Clear();
-int[,] Get2DArray (int rowNumber, int colNumber)
+int[,] Get2DArray (int rowNumber, int colNumber, int deviation)
 {
     int[,] result = new int[rowNumber, colNumber];
     for (int i = 0; i < rowNumber; i++)
     {
         for (int j = 0; j < colNumber; j++)
         {
-            result[i, j] = i + j;
+            result[i, j] = new Random().Next(-deviation, deviation + 1);
         }
     }
     return result;
@@ -42,7 +42,7 @@ void Print2DArray(int[,] arrayToPrint)
     }
 }
 
-int[,] numbers = Get2DArray(4,4);
+int[,] numbers = Get2DArray(4,4,10);
 Console.WriteLine("Массив изначальный: ");
 Print2DArray(numbers);
 
