@@ -62,24 +62,25 @@ void ColorInArray(int[,] arrayToPrint, int row, int col)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
             }
-            else Console.ForegroundColor = ConsoleColor.White;
+            else Console.ForegroundColor = ConsoleColor.DarkMagenta;
 
             Console.Write(arrayToPrint[i,j] + "\t");
        }
        Console.WriteLine();
+       Console.ForegroundColor = ConsoleColor.White;
     }
 }
 
-int[,] numbers = fillAray(10,10);
+int[,] numbers = fillAray(5,5);
 PrintArray(numbers);
 
 Console.WriteLine("Выберите номер строки: ");
-int  row = Convert.ToInt32(Console.ReadLine());
+int row = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Выберите номер столбца: ");
 int col = Convert.ToInt32(Console.ReadLine());
 Console.Clear();
 
-if (row > numbers.GetLength(0) || col > numbers.GetLength(1) || row < 0 || col < 0)
+if (row > numbers.GetLength(0)-1 || col > numbers.GetLength(1)-1 || row < 0 || col < 0)
 {
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine("Такого элемента нет, либо числа введены неправильно.");
@@ -91,5 +92,4 @@ else
     Console.ForegroundColor = ConsoleColor.White;
 }
 
-int target = numbers[row, col];
 ColorInArray(numbers, row, col);
