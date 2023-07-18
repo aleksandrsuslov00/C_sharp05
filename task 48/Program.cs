@@ -36,7 +36,7 @@ void Print2DArray(int[,] arrayToPrint)
     for (int i = 0; i < arrayToPrint.GetLength(1); i++)
     {
        Console.Write($"[{i}]\t");
-       for (int j = 0; j < arrayToPrint.GetLength(1); i++)
+       for (int j = 0; j < arrayToPrint.GetLength(0); j++)
        {
            Console.Write(arrayToPrint[i,j] + "\t");
        }
