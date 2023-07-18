@@ -9,7 +9,7 @@
 1 3 7 2
 5 81 2 9
 */
-
+Console.Clear();
 int[,] Get2DArray (int rowNumber, int colNumber)
 {
     int[,] result = new int[rowNumber, colNumber];
@@ -42,7 +42,8 @@ void Print2DArray(int[,] arrayToPrint)
     }
 }
 
-int[,] numbers = Get2DArray(8,4);
+int[,] numbers = Get2DArray(4,4);
+Console.WriteLine("Массив изначальный: ");
 Print2DArray(numbers);
 
 void ChangeMatrix(int[,] array)
@@ -59,7 +60,7 @@ void ChangeMatrix(int[,] array)
     }
 }
 
-Console.WriteLine();
+Console.WriteLine("Новый массив с квадратами: ");
 ChangeMatrix(numbers);
 Print2DArray(numbers);
 

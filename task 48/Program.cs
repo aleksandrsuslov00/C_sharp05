@@ -11,7 +11,7 @@ m = 3, n = 4;
 2 3 4 5
 */
 
-
+Console.Clear();
 int[,] Get2DArray (int rowNumber, int colNumber)
 {
     int[,] result = new int[rowNumber, colNumber];
@@ -33,10 +33,10 @@ void Print2DArray(int[,] arrayToPrint)
        Console.Write($"[{i}]\t");
     }
     Console.WriteLine();
-    for (int i = 0; i < arrayToPrint.GetLength(1); i++)
+    for (int i = 0; i < arrayToPrint.GetLength(0); i++)
     {
        Console.Write($"[{i}]\t");
-       for (int j = 0; j < arrayToPrint.GetLength(0); j++)
+       for (int j = 0; j < arrayToPrint.GetLength(1); j++)
        {
            Console.Write(arrayToPrint[i,j] + "\t");
        }
@@ -44,5 +44,5 @@ void Print2DArray(int[,] arrayToPrint)
     }
 }
 
-int[,] array = Get2DArray(3,4);
+int[,] array = Get2DArray(5,7);
 Print2DArray(array);
