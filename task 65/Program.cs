@@ -8,7 +8,7 @@ M = 4; N = 8 -> "4,5,6,7,8"
 */
 Console.WriteLine("Введите число N: ");
 int start = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите число N: ");
+Console.WriteLine("Введите число M: ");
 int end = Convert.ToInt32(Console.ReadLine());
 
 void RecursionNumberNM(int start, int end)
@@ -21,6 +21,7 @@ void RecursionNumberNM(int start, int end)
          RecursionNumberNM(start + 1, end);
         }
     }
+    else (Console.WriteLine("Введено не натуральное число "));
 }
 
 RecursionNumberNM(start, end);
