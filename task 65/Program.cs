@@ -11,7 +11,7 @@ int start = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите число M: ");
 int end = Convert.ToInt32(Console.ReadLine());
 
-void RecursionNumberNM(int start, int end)
+void RecursionNumberN(int start, int end)
 {
     if (start > 1 && end > 1)
     {
